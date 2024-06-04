@@ -1,5 +1,5 @@
-import adapter from '@sveltejs/adapter-node';
-import preprocess from 'svelte-preprocess';
+import adapter from "@sveltejs/adapter-node";
+import preprocess from "svelte-preprocess";
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -7,21 +7,20 @@ const config = {
 	// for more information about preprocessors
 	preprocess: [
 		preprocess({
-			postcss: true
-		})
+			postcss: true,
+		}),
 	],
 
 	kit: {
 		adapter: adapter({
-			out: 'dist'
+			out: "dist",
 		}),
 		csrf: { checkOrigin: true },
-		trailingSlash: 'always',
 		serviceWorker: {
 			register: true,
-			files: (filepath) => !/\.DS_Store/.test(filepath)
-		}
-	}
+			files: (filepath) => !/\.DS_Store/.test(filepath),
+		},
+	},
 };
 
 export default config;
